@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%6lp_p!%r$7t-2ql5hc5(r@)8u_fc+6@ugxcnz=h=b(fn#3$p9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -84,37 +84,31 @@ WSGI_APPLICATION = 'e_voting.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    #using the default databsa i.e mysqlite
-      # You can use this :
-  #  'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-      #  'NAME': BASE_DIR / 'db.sqlite3',
-   # }
-    
-# adding mysql database
-    # 'default': {
-      #   'ENGINE': 'django.db.backends.mysql',
-       #  'NAME': 'e_voting',
-       #  'HOST': '127.0.0.1',
-        # 'USER': 'root',
-        # 'PASSWORD': '',
-        # 'PORT': '3306',
-    #}
-
-# using postgresql 
-   
-
-
+    # Using SQLite for local development
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'e_voting',
-        'USER': 'postgres',
-        'PASSWORD': '1280',
-        'HOST': 'localhost',  # Set the database host or IP address
-        'PORT': '5432',      # Set the database port (default is 5432)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+    
+    # For PostgreSQL (uncomment to use):
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'e_voting',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1280',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 
-
+    # For MySQL (uncomment to use):
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'e_voting',
+    #     'HOST': '127.0.0.1',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    #     'PORT': '3306',
+    # }
 }
 
 
@@ -162,6 +156,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'account.CustomUser'
 AUTHENTICATION_BACKENDS = ['account.email_backend.EmailBackend']
