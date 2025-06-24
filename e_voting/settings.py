@@ -36,11 +36,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', 'https://ballotbox-ajag.onrender.com', 'ballotbox-ajag.onrender.com']
 
 # CSRF Trusted Origins - for production deployment
-CSRF_TRUSTED_ORIGINS = [
-    'https://ballotbox-ajag.onrender.com',
-    'http://127.0.0.1:8080',
-    'http://localhost:8080',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://ballotbox-ajag.onrender.com',
+#     'http://127.0.0.1:8080',
+#     'http://localhost:8080',
+# ]
 
 # Application definition
 
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     #'whitenoise.middleware.whiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
