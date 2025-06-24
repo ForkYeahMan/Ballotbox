@@ -44,28 +44,42 @@ A web-based electronic voting system built with Django that allows secure online
    pip install -r requirements.txt
    ```
 
-5. **Configure the database:**
-   The project is configured to use SQLite by default for development. If you want to use PostgreSQL or MySQL, edit the `DATABASES` setting in `e_voting/settings.py`.
+5. **Configure environment variables (optional):**
+   Copy the `.env` file and modify as needed:
+   ```bash
+   # The .env file is already created with default values
+   # Edit .env to customize port and other settings
+   ```
 
-6. **Run migrations:**
+6. **Configure the database:**
+   The project is configured to use SQLite by default for development. If you want to use PostgreSQL or MySQL, edit the `DATABASES` setting in `e_voting/settings.py` or use environment variables in `.env`.
+
+7. **Run migrations:**
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-7. **Create a superuser:**
+8. **Create a superuser:**
    ```bash
    python manage.py createsuperuser
    ```
 
-8. **Start the development server:**
+9. **Start the development server:**
    ```bash
+   # Option 1: Using the custom script (recommended)
+   ./run_server.sh
+   
+   # Option 2: Direct Django command
    python manage.py runserver 8080
+   
+   # Option 3: Custom port using environment variable
+   PORT=3000 ./run_server.sh
    ```
 
-9. **Access the application:**
-   - Main application: http://127.0.0.1:8080/
-   - Admin panel: http://127.0.0.1:8080/admin/
+10. **Access the application:**
+    - Main application: http://127.0.0.1:8080/ (or your custom port)
+    - Admin panel: http://127.0.0.1:8080/admin/ (or your custom port)
 
 ## Project Structure
 
