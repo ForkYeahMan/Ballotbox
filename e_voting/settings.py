@@ -35,6 +35,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'https://ballotbox-ajag.onrender.com', 'ballotbox-ajag.onrender.com']
 
+# CSRF Trusted Origins - for production deployment
+CSRF_TRUSTED_ORIGINS = [
+    'https://ballotbox-ajag.onrender.com',
+    'http://127.0.0.1:8080',
+    'http://localhost:8080',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
